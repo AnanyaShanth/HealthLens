@@ -55,7 +55,11 @@ Frontend: HTML, CSS (Jinja2 templates)
 
 ## Proof of Google AI Usage
 
-include it in the /proofs folder
+Screenshots and audio proof of Google AI integration are available in the [https://1drv.ms/f/c/f4b3d5c4df9cac8e/IgAx-svHvtFGSo8cpk1Mx81RAdrB0JDgf6237dydnwvXwlw?e=4xpdTb] folder, including:
+- Gemini API response / fallback trigger log
+- API key configuration (redacted)
+- Google Translate output sample (English vs. Malayalam)
+- Generated gTTS audio files (https://drive.google.com/drive/folders/1VuLzSkVQASgIPfYG572YJbr7HlqmlafJ?usp=drive_link)
 
 ## Screenshots
 
