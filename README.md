@@ -1,22 +1,42 @@
-# Project Name HealthLens
+# Project Name 
+HealthLens
 
 ## Problem Statement
 
-Explain clearly what problem your project is solving.
+Frontline healthcare workers and patients in rural and low-literacy communities routinely receive medical guidance — dosage instructions, treatment protocols, referral advisories — written for educated, urban audiences. Prescriptions are handwritten, dense with medical jargon, and printed only in English.
+This creates a last-mile communication gap: the information technically reaches the patient, but understanding does not. The result is missed doses, incorrect dosing, incomplete treatment courses, and preventable health complications.
+Solving this isn't just about translating or transcribing a prescription. It requires explaining the prescription and the reasoning behind it, in plain language the patient can actually act on. Below are the four core questions this project answers for every prescription.
 
 ## Project Description
 
-Describe your solution, how it works, and what makes it useful.
+HealthLens helps patients understand handwritten prescriptions in a simple and accessible way. Users upload a photo of a prescription, and the app uses OCR and AI to identify medicines and explain them in easy language. Each medicine is displayed in both English and Malayalam with clear dosage instructions, timing, precautions, and the importance of completing the treatment. The app also provides audio narration in both languages, making it useful for people with low literacy or reading difficulties.
+What Makes It Useful
+Simple medicine explanations in English and Malayalam
+Audio narration for users who cannot read
+Clear guidance on dosage, timing, and missed doses
+Automatic fallback to Google Gemini when the local AI model is unavailable
 
 ---
 
 ## Google AI Usage
+Google Gemini 2.0 Flash — fallback language model for generating simplified medical explanations when the local model is unavailable
+Google Translate (via deep_translator) — translates AI-generated explanations into Malayalam
+Google Text-to-Speech (gTTS) — converts explanations into spoken audio in both English and Malayalam
 
 ### Tools / Models Used
-
+Gemma2:2b (via Ollama) — primary language model, run locally, used to generate simplified medical explanations from the OCR'd prescription text
+Google Gemini 2.0 Flash — fallback language model, automatically takes over if the local Gemma model is unavailable, using the same prompt to keep the app functional
+Google Translate (via deep_translator) — translates the AI-generated explanations into Malayalam
+Google Text-to-Speech (gTTS) — converts explanations into spoken audio in both English and Malayalam
 - 
 ## Tech Stack used
-
+Backend: Python, Flask
+OCR: EasyOCR (reads handwritten prescription text from uploaded images)
+Primary LLM: Gemma2:2b, run locally via Ollama
+Fallback LLM: Google Gemini 2.0 Flash
+Translation: Google Translate (deep_translator)
+Text-to-Speech: gTTS (Google Text-to-Speech)
+Frontend: HTML, CSS (Jinja2 templates
 - 
 
 
