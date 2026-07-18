@@ -75,6 +75,28 @@ https://drive.google.com/drive/folders/1VuLzSkVQASgIPfYG572YJbr7HlqmlafJ?usp=dri
 
 ## Installation Steps
 
+1. Clone the repository
+```bash
+   git clone https://github.com/AnanyaShanth/HealthLens.git
+   cd HealthLens
+```
+
+2. Create a virtual environment (recommended)
+```bash
+   python -m venv venv
+   venv\Scripts\activate       # Windows
+   source venv/bin/activate    # Mac/Linux
+```
+
+3. Install dependencies
+```bash
+   pip install flask easyocr google-generativeai python-dotenv deep-translator gTTS requests
+```
+
+4. Set up environment variables
+
+   Create a `.env` file in the project root:
+
 How to run your project
 
 
