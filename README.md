@@ -50,7 +50,7 @@ Frontend: HTML, CSS (Jinja2 templates)
 
 ### GitHub repo link of the project
 
-[Link of the github repository](https://github.com/AnanyaShanth/HealthLens.git)
+[https://github.com/AnanyaShanth/HealthLens.git](https://github.com/AnanyaShanth/HealthLens.git)
 
 
 ## Proof of Google AI Usage
