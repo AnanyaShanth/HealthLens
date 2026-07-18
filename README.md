@@ -59,13 +59,13 @@ include it in the /proofs folder
 
 ## Screenshots
 
-Add project screenshots in /screenshots folder
+https://1drv.ms/f/c/f4b3d5c4df9cac8e/IgAx-svHvtFGSo8cpk1Mx81RAdrB0JDgf6237dydnwvXwlw?e=4xpdTb
 
 ---
 
 ## Demo Video
 
-Upload your demo video to Google Drive and paste the shareable link here(max 3 minutes). [Watch Demo](https://)
+Upload your demo video to Google Drive and paste the shareable link here(max 3 minutes). [Watch Demo](https://drive.google.com/drive/folders/1VuLzSkVQASgIPfYG572YJbr7HlqmlafJ?usp=drive_link)
 
 ---
 
