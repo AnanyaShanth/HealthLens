@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Results - HealthLens</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wordmark">HealthLens</div>
+  </header>
+  <div class="mural-border"></div>
+
+  <h1>Your Medicines</h1>
+  <p><small>Analyzed by: {{ data._source }}</small></p>
+  {% if data.error %}
+    <p>Error: {{ data.error }}</p><pre>{{ data.raw }}</pre>
+  {% else %}
+    {% for med in data.medicines %}
+    <div class="med-card" style="--accent: {{ med.accent_color }};">
+      <h2>💊 {{ med.name }} / {{ med.name_ml }}</h2>
+
+      <div class="read-aloud-row">
+        {% if med.audio_full_en %}
+          <button class="speak-btn" onclick="playAudio('{{ med.audio_full_en }}')">🔊 Read full card — English</button>
+        {% endif %}
+        {% if med.audio_full_ml %}
+          <button class="speak-btn" onclick="playAudio('{{ med.audio_full_ml }}')">🔊 പൂർണ്ണമായി വായിക്കുക — മലയാളം</button>
+        {% endif %}
+      </div>
+
+      <div class="timing-badges">
+        {% for b in med.timing_badges %}
+          <span class="badge badge-{{ b.css }}">{{ b.emoji }} {{ b.label_en }} / {{ b.label_ml }}</span>
+        {% endfor %}
+      </div>
+
+      <p>🎯 <b>Why:</b> {{ med.purpose }} / {{ med.purpose_ml }}</p>
+      <p class="story">📖 {{ med.how_it_works }} / {{ med.how_it_works_ml }}</p>
+      <p><b>Dosage:</b> {{ med.dosage }} / {{ med.dosage_ml }}</p>
+      <p>{{ med.intake_icon }} <b>How to take:</b> {{ med.how_to_take }} / {{ med.how_to_take_ml }}</p>
+      <p>📅 <b>Duration:</b> {{ med.duration }} / {{ med.duration_ml }}</p>
+      <p class="importance">⚠️ {{ med.importance }} / {{ med.importance_ml }}</p>
+      <p>🚫 <b>Precautions:</b> {{ med.precautions }} / {{ med.precautions_ml }}</p>
+    </div>
+    {% endfor %}
+    <p style="font-size:0.85rem; opacity:0.7; margin-top:24px;">
+      This explanation is a guide only. Always follow your doctor's exact instructions and ask a pharmacist if anything is unclear.
+    </p>
+  {% endif %}
+  <a href="/">Try another</a>
+
+  <script>
+    let currentAudio = null;
+    function playAudio(src) {
+      if (currentAudio) { currentAudio.pause(); }
+      currentAudio = new Audio(src);
+      currentAudio.play();
+    }
+  </script>
+</body>
+</html>

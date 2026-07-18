@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HealthLens — Prescriptions, plainly explained</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wordmark">HealthLens</div>
+    <div class="tagline">
+      <span class="en">Prescriptions, plainly explained</span>
+      <span class="ml">നിർദ്ദേശങ്ങൾ, ലളിതമായി വിശദീകരിച്ചത്</span>
+    </div>
+  </header>
+  <div class="mural-border"></div>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Doctor's handwriting, turned into <span class="highlight">words you understand</span>.</h1>
+      <p class="hero-sub">Upload a photo of any prescription. HealthLens reads it and explains each medicine simply — in English and Malayalam — with exactly when, how, and why to take it.</p>
+    </div>
+    <div class="scrawl-demo" aria-hidden="true">
+      <span class="scrawl">Amoxycxlin</span>
+      <span class="arrow">→</span>
+      <span class="clear">Amoxicillin<br><small>After food, twice a day ☀️🌙</small></span>
+    </div>
+  </section>
+
+  <section class="upload-card">
+    <form action="/analyze" method="post" enctype="multipart/form-data"
+          onsubmit="document.getElementById('loading').style.display='block'; document.getElementById('submitBtn').disabled=true;">
+      <label for="prescription" class="upload-label">
+        <span class="upload-icon">📷</span>
+        <span class="upload-text">Tap to choose a prescription photo</span>
+      </label>
+      <input type="file" id="prescription" name="prescription" accept="image/*" required>
+      <button type="submit" id="submitBtn">Analyze my prescription</button>
+    </form>
+    <p id="loading" style="display:none;">Analyzing your prescription… this can take up to 30 seconds.</p>
+  </section>
+
+  <section class="steps">
+    <div class="step">
+      <span class="step-num">1</span>
+      <h3>Upload</h3>
+      <p>Snap or upload a clear photo of your prescription.</p>
+    </div>
+    <div class="step">
+      <span class="step-num">2</span>
+      <h3>Understand</h3>
+      <p>AI reads the handwriting and explains each medicine simply.</p>
+    </div>
+    <div class="step">
+      <span class="step-num">3</span>
+      <h3>Take safely</h3>
+      <p>See exactly when, how, and why — in English and Malayalam.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>HealthLens is a guide, not a replacement for your doctor or pharmacist. Always follow their instructions.</p>
+  </footer>
+
+  <script>
+    document.getElementById('prescription').addEventListener('change', function (e) {
+      const label = document.querySelector('.upload-text');
+      if (e.target.files.length > 0) {
+        label.textContent = e.target.files[0].name;
+      }
+    });
+  </script>
+
+</body>
+</html>
